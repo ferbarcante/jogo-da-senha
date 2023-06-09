@@ -9,7 +9,7 @@ public class JogoDaSenha {
         int vidas = 10;
         int [] senha = new int[4];
         int [] digitos = new int[4];
-        
+
         randomizar(senha);
         boasVindas();
 
@@ -27,7 +27,7 @@ public class JogoDaSenha {
             }
         }
     }
-    public static void randomizar(int[] senha) {
+    private static void randomizar(int[] senha) {
         Random rand = new Random();
         for (int i=0; i<senha.length;i++) {
             senha[i]= rand.nextInt(1, 7);
@@ -57,6 +57,7 @@ public class JogoDaSenha {
     }
     public static int comparar2(int [] senha, int [] digitos) {
         int contp=0;
+        int contpPosErrou = 0;
         for (int i=0; i<senha.length; i++) {
             if (senha[i] != digitos[i] ){
                 for (int j = 0; j < senha.length; j++) {
@@ -66,41 +67,48 @@ public class JogoDaSenha {
                     }
 
                 }
+            } else {
+                contpPosErrou++;
             }
         }
         System.out.println("Digitos deslocados: " + contp);
+        System.out.println("Digitos corretos na posição errada: " + contpPosErrou);
         return contp;
     }
     public static void boasVindas(){
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("--------------------------------------------------------");
+        System.out.println("----------------------------------------------------------");
         System.out.println("");
         System.out.println("       ⸜( ˙˘˙)⸝ Seja bem vindo ao jogo da senha!");
         System.out.println("          ➤ Você já conhece as regras? ୭̥⋆*｡ ");
         System.out.println("");
-        System.out.println("---------------------------------------------------------");
+        System.out.println("-----------------------------------------------------------");
 
         String respostaRegras = scan.next();
 
         if(respostaRegras.equalsIgnoreCase("sim")){
-            System.out.println("--------------------------------------------------------");
+            System.out.println("----------------------------------------------------------");
             System.out.println("");
-            System.out.println("  Que bom (◦'ںˉ◦)!  Seja bem vindo ao jogo da senha ✦ ");
+            System.out.println("                  Que bom (◦'ںˉ◦)!  ");
+            System.out.println("        Agora, digite a sua primeira tentativa: ");
             System.out.println("");
-            System.out.println("--------------------------------------------------------");
+            System.out.println("----------------------------------------------------------");
 
         } else {
-            System.out.println("--------------------------------------------------------");
+            System.out.println("----------------------------------------------------------");
             System.out.println("");
             System.out.println("                   As regras consistem em: ");
-            System.out.println("     ➤ Uma combinação de números (a senha) será gerada");
-            System.out.println("     ➤ O jogador tem tentativas de acertar a senha e o  ");
-            System.out.println("        programa dirá se algum número está correto ou não ");
-            System.out.println("     ➤ O jogo acaba quando o jogador acerta a senha completa!");
+            System.out.println("     ➤  Uma combinação de números (a senha) será gerada");
+            System.out.println("     ➤  O jogador tem tentativas de acertar a senha e o  ");
+            System.out.println("         programa dirá se algum número está correto ou não ");
+            System.out.println("     ➤  O jogo acaba quando o jogador acerta a senha completa!");
+            System.out.println("     ➤  É preciso digitar números de 1 a 6!");
             System.out.println("               Seja bem vindo ao jogo da senha ✦");
             System.out.println("");
-            System.out.println("--------------------------------------------------------");
+            System.out.println("             Agora, digite a sua primeira tentativa: ");
+            System.out.println("");
+            System.out.println("----------------------------------------------------------");
 
 
         }
