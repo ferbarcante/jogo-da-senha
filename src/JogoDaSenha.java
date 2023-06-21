@@ -57,22 +57,20 @@ public class JogoDaSenha {
     }
     public static int comparar2(int [] senha, int [] digitos) {
         int contp=0;
-        int contpPosErrou = 0;
+
         for (int i=0; i<senha.length; i++) {
             if (senha[i] != digitos[i] ){
                 for (int j = 0; j < senha.length; j++) {
-                    if (senha[j] == digitos[i] && senha[i] != digitos[i]) {
+                    if (senha[i] == digitos[j] && senha[i] != digitos[i] ) {
                         contp++;
-                        break;
+
                     }
 
                 }
-            } else {
-                contpPosErrou++;
             }
         }
         System.out.println("Digitos deslocados: " + contp);
-        System.out.println("Digitos corretos na posição errada: " + contpPosErrou);
+
         return contp;
     }
     public static void boasVindas(){
@@ -80,7 +78,7 @@ public class JogoDaSenha {
 
         System.out.println("----------------------------------------------------------");
         System.out.println("");
-        System.out.println("       ⸜( ˙˘˙)⸝ Seja bem vindo ao jogo da senha!");
+        System.out.println("          Seja bem vindo ao jogo da senha!");
         System.out.println("          ➤ Você já conhece as regras? ୭̥⋆*｡ ");
         System.out.println("");
         System.out.println("-----------------------------------------------------------");
